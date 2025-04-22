@@ -6,7 +6,8 @@ const nextConfig = {
     unoptimized: true,
   },
   trailingSlash: true,
-  reactStrictMode: true
+  reactStrictMode: true,
+  assetPrefix: '/cafe-932km/'
 }
 
 export default nextConfig;
