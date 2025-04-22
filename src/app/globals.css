@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #2C5282;
+  --color-accent: #E07C4F;
+  --color-secondary: #FAF7F2;
+  --color-text: #2D3748;
+  --color-text-light: #4A5568;
+}
+
+@layer base {
+  body {
+    @apply bg-secondary text-text font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-text;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-secondary px-8 py-3 rounded-lg font-medium transition-all duration-200 transform hover:scale-105;
+  }
+
+  .nav-link {
+    @apply px-4 py-2 text-text-light hover:text-primary transition-colors relative
+    after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5
+    after:bg-primary after:scale-x-0 hover:after:scale-x-100
+    after:transition-transform after:duration-300;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-lg overflow-hidden
+    transform transition-transform duration-300 hover:scale-[1.02]
+    hover:shadow-xl;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold text-center mb-16;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+  }
+
+  .bg-pattern {
+    @apply bg-[url('/pattern.svg')] bg-repeat opacity-10;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
