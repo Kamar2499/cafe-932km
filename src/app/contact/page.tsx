@@ -1,5 +1,5 @@
 import ContactForm from '../components/ContactForm'
-import { motion } from 'framer-motion'
+import AnimatedSection from '../components/AnimatedSection'
 
 export default function Contact() {
   return (
@@ -8,11 +8,7 @@ export default function Contact() {
         <h1 className="text-4xl font-bold text-center mb-12">Контакты</h1>
 
         <div className="grid md:grid-cols-2 gap-12">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+          <AnimatedSection>
             <h2 className="text-2xl font-bold mb-6">Свяжитесь с нами</h2>
             
             <div className="space-y-6">
@@ -37,7 +33,7 @@ export default function Contact() {
                 <p className="text-lg">Сб-Вс: 11:00 - 23:00</p>
               </div>
             </div>
-          </motion.div>
+          </AnimatedSection>
 
           <ContactForm />
         </div>
