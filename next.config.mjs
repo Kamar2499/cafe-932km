@@ -9,7 +9,10 @@ const nextConfig = {
   },
   trailingSlash: true,
   reactStrictMode: true,
-  assetPrefix: '/cafe-932km/'
+  assetPrefix: '/cafe-932km/',
+  experimental: {
+    appDir: true
+  }
 }
 
 export default nextConfig;

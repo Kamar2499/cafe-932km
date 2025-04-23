@@ -34,6 +34,9 @@ jobs:
       - name: Install dependencies
         run: npm clean-install
       
+      - name: Create output directory
+        run: mkdir -p out
+      
       - name: Build
         run: npm run build
       
