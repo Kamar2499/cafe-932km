@@ -1,18 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  distDir: 'out',
-  basePath: '/cafe-932km',
   images: {
-    unoptimized: true,
-    remotePatterns: []
+    unoptimized: true
   },
-  trailingSlash: true,
-  reactStrictMode: true,
+  basePath: '/cafe-932km',
   assetPrefix: '/cafe-932km/',
-  experimental: {
-    appDir: true
-  }
+  trailingSlash: true
 }
 
 export default nextConfig;

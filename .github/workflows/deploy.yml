@@ -32,32 +32,22 @@ jobs:
           cache: 'npm'
       
       - name: Install dependencies
-        run: npm clean-install
-      
-      - name: Create output directory
-        run: mkdir -p out
+        run: |
+          npm ci
+          npm cache clean --force
       
       - name: Build
         run: npm run build
       
-      - name: List build output
+      - name: Prepare artifact
         run: |
-          echo "Current directory:"
-          pwd
-          echo "Directory contents:"
           ls -la
-          echo "Out directory contents:"
-          ls -la out || echo "out directory not found"
-          echo "Contents of out directory (if exists):"
-          find out -type f || echo "No files found in out directory"
-      
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
+          tar -czf artifact.tar.gz out/
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: out
+          path: artifact.tar.gz
       
       - name: Deploy to GitHub Pages
         id: deployment
