@@ -39,15 +39,23 @@ jobs:
       - name: Build
         run: npm run build
       
-      - name: Prepare artifact
+      - name: Debug directory structure
         run: |
+          pwd
+          echo "Root directory contents:"
           ls -la
-          tar -czf artifact.tar.gz out/
+          echo "Looking for out directory:"
+          find . -name "out" -type d
+          echo "Checking .next directory:"
+          ls -la .next || echo ".next directory not found"
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: artifact.tar.gz
+          path: ./.next/out
       
       - name: Deploy to GitHub Pages
         id: deployment
