@@ -45,6 +45,8 @@ jobs:
           ls -la
           echo "Out directory contents:"
           ls -la out || echo "out directory not found"
+          echo "Contents of out directory (if exists):"
+          find out -type f || echo "No files found in out directory"
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -52,7 +54,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: out
       
       - name: Deploy to GitHub Pages
         id: deployment
